@@ -1,0 +1,123 @@
+body, html, #root, .App {
+  height: 100%;
+  margin: 0;
+  font-family: 'SF Pro Display', 'Roboto', Arial, sans-serif;
+  background: #181c2b;
+  color: #fff;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.weather-dashboard {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.weather-main {
+  position: relative;
+  z-index: 2;
+  margin-top: 5vh;
+  background: rgba(24,28,43,0.7);
+  border-radius: 24px;
+  padding: 2rem 3rem;
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.18);
+  text-align: center;
+}
+
+.weather-main h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.temperature {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.animated-bg {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  background: linear-gradient(180deg, #232946 0%, #181c2b 100%);
+  animation: bgFade 10s ease-in-out infinite alternate;
+}
+
+@keyframes bgFade {
+  0% { filter: brightness(1) blur(0px); }
+  100% { filter: brightness(0.85) blur(2px); }
+}
+
+/* Example animated haze effect for Ceres */
+.animated-bg.thin-haze::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(120deg, rgba(255,255,255,0.07) 0 2px, transparent 2px 40px);
+  opacity: 0.5;
+  animation: hazeMove 18s linear infinite;
+}
+
+@keyframes hazeMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 200px 100px; }
+}
+
+/* Add more condition-based backgrounds as needed */
